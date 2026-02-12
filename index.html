@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inventários de Young – Preenchimento (Offline)</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="title">Inventários de Young</div>
+          <div class="subtitle">Mini-site offline • Autosave local • Exportação JSON/CSV • Sem interpretação automática</div>
+        </div>
+      </div>
+
+      <nav class="tabs" role="tablist" aria-label="Formulários">
+        <button class="tab" role="tab" id="tab-YRAI" aria-selected="true" aria-controls="panel-main">Evitação (YRAI)</button>
+        <button class="tab" role="tab" id="tab-YCI" aria-selected="false" aria-controls="panel-main">Compensação (YCI)</button>
+        <button class="tab" role="tab" id="tab-PM2" aria-selected="false" aria-controls="panel-main">Modos (PM2)</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap grid" id="panel-main">
+      <aside class="card">
+        <div class="card-hd">
+          <h2>Identificação</h2>
+          <span class="pill" id="activePill">Evitação (YRAI)</span>
+        </div>
+        <div class="card-bd">
+          <div class="row2">
+            <div>
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" placeholder="Digite o nome" autocomplete="name" />
+            </div>
+            <div>
+              <label for="data">Data</label>
+              <input id="data" type="date" />
+            </div>
+          </div>
+
+          <div class="spacer"></div>
+
+          <div class="meta">
+            <span id="answeredMeta">Respondidas: 0</span>
+            <span id="totalMeta">Total: 0</span>
+            <span id="pctMeta">0%</span>
+          </div>
+          <div class="progress">
+            <div class="bar" id="progressBar"></div>
+          </div>
+
+          <div class="spacer"></div>
+
+          <div class="btns">
+            <button class="primary" id="btnExportJson">Exportar JSON</button>
+            <button id="btnExportCsv">Exportar CSV</button>
+            <button id="btnExportAll">Exportar TUDO (Pacote)</button>
+            <button id="btnPrint">Imprimir</button>
+            <button class="danger" id="btnClear">Limpar respostas (formulário atual)</button>
+          </div>
+
+          <div class="note">
+            <div><b>Escala:</b> 1…6 (conforme instruções do formulário selecionado).</div>
+            <div class="muted">Este site apenas coleta respostas. Não calcula nem interpreta resultados automaticamente.</div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="card">
+        <div class="card-hd">
+          <div>
+            <h2 id="formTitle">Inventário de Evitação (YRAI)</h2>
+
+            <!-- Agora esse bloco recebe HTML (cards), então ele PRECISA ser container -->
+            <div id="instructions"></div>
+          </div>
+          <span class="pill" id="formKey">YRAI</span>
+        </div>
+
+        <div class="card-bd">
+          <div class="toolbar">
+            <div class="grow">
+              <label for="search">Buscar frase</label>
+              <input id="search" type="search" placeholder="Ex.: 'infância', 'raiva', 'vazio'…" />
+            </div>
+            <div class="jump">
+              <label for="jump">Ir para questão</label>
+              <input id="jump" type="search" placeholder="Número + Enter" />
+            </div>
+          </div>
+
+          <div id="questions"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="muted">Offline • Dados salvos no seu navegador (LocalStorage)</span>
+      <span class="muted">Atalho: Ctrl+F para buscar na página • Use “Exportar” para salvar arquivo</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
