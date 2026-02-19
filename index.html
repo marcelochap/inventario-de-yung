@@ -97,6 +97,30 @@
           </div>
 
           <div id="questions"></div>
+          <!-- Resultados (aparece no PM2/YAMI) -->
+          <div id="resultsPanel" class="results" style="display:none;">
+            <div class="results-hd">
+              <h3>Resultados</h3>
+              <div class="results-actions">
+                <button id="btnUpdateResults">Atualizar resultados</button>
+                <button class="primary" id="btnExportResultsPng">Exportar imagem (PNG)</button>
+              </div>
+            </div>
+
+            <div class="results-grid results-grid-vertical">
+              <div class="results-card">
+                <div class="results-subtitle">Médias por categoria (média simples)</div>
+                <div id="resultsTableWrap"></div>
+                <div id="resultsNote" class="muted" style="margin-top:10px;"></div>
+              </div>
+
+              <div class="results-card">
+                <div class="results-subtitle">Gráfico</div>
+                <canvas id="resultsChart" width="1400" height="520" class="results-canvas results-canvas-big"></canvas>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
     </div>

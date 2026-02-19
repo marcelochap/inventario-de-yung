@@ -290,3 +290,189 @@ summary{
   border-radius:999px;
   padding:2px 5px;
 }
+/* =========================
+   RESULTADOS (PM2/YAMI)
+========================= */
+
+.results{
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.results-hd{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.results-hd h3{
+  margin:0;
+  font-size:14px;
+}
+
+.results-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.results-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media(min-width: 980px){
+  .results-grid{ grid-template-columns: 1.05fr .95fr; }
+}
+
+.results-card{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.results-subtitle{
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.results-table{
+  width: 100%;
+  border-collapse: collapse;
+  overflow:hidden;
+  border-radius: 12px;
+  border:1px solid var(--line);
+}
+
+.results-table th, .results-table td{
+  padding: 10px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.results-table th{
+  text-align:left;
+  font-size:12px;
+  color: var(--muted);
+  background: rgba(255,255,255,.02);
+}
+
+.results-table tr:last-child td{
+  border-bottom:none;
+}
+
+.results-val{
+  width: 120px;
+  text-align:right;
+  font-weight: 900;
+  border-left: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+
+.results-val.good{
+  background: rgba(34,197,94,.18);
+  border-left-color: rgba(34,197,94,.35);
+}
+
+.results-val.mid{
+  background: rgba(245,158,11,.16);
+  border-left-color: rgba(245,158,11,.35);
+}
+
+.results-val.bad{
+  background: rgba(239,68,68,.16);
+  border-left-color: rgba(239,68,68,.35);
+}
+
+.results-range{
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.results-canvas{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+/* =========================
+   RESULTADOS – layout novo
+   - tabela em 2 colunas
+   - gráfico embaixo grande
+========================= */
+
+/* deixa o card principal mais largo no desktop */
+@media (min-width: 980px){
+  .wrap.grid{
+    max-width: 1320px; /* aumenta a largura geral */
+  }
+}
+
+/* grid vertical: tabela em cima, gráfico em baixo */
+.results-grid-vertical{
+  grid-template-columns: 1fr !important;
+}
+
+/* tabela em 2 colunas (5 + 5) */
+.results-table.two-col{
+  display: block;
+  border: none;
+  background: transparent;
+}
+
+.results-table-two{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 980px){
+  .results-table-two{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.results-table-mini{
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+
+.results-table-mini th, .results-table-mini td{
+  padding: 10px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.results-table-mini th{
+  font-size: 12px;
+  color: var(--muted);
+  background: rgba(255,255,255,.03);
+  text-align: left;
+}
+
+.results-table-mini tr:last-child td{
+  border-bottom: none;
+}
+
+/* gráfico mais alto e ocupando o card todo */
+.results-canvas-big{
+  width: 100%;
+  height: auto;
+  min-height: 520px;
+}
+
